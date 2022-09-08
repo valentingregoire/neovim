@@ -1,7 +1,16 @@
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
-local opts = { silent = true }
+local opts = { noremap = true, silent = true }
+
+-- generates options for keymaps
+function getOptions(desc)
+    return {
+        noremap = true,
+        silent = true,
+        desc = desc
+    }
+end
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -15,51 +24,62 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- leader
+keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", getOptions("פּ  Toggle explorer"))
+keymap("n", "<Leader>n", "<cmd>noh<CR>", getOptions("  Remove seach highlights"))
+keymap("", "<Leader>h", "<cmd>Alpha<CR>", getOptions("  Home"))
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- default editor
+keymap("n", "<c-s>", ":w<CR>", {})
+keymap("i", "<c-s>", "<ESC>:w<CR>a", {})
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- window management
+keymap("n", "<c-h>", "<c-w>h", opts)
+keymap("n", "<c-j>", "<c-w>j", opts)
+keymap("n", "<c-k>", "<c-w>k", opts)
+keymap("n", "<c-l>", "<c-w>l", opts)
+-- resize
+keymap("n", "<c-Up>", ":resize -2<CR>", opts)
+keymap("n", "<c-Down>", ":resize +2<CR>", opts)
+keymap("n", "<c-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<c-Right>", ":vertical resize +2<CR>", opts)
 
--- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
-
--- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
-
--- Better paste
-keymap("v", "p", '"_dP', opts)
-
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
+-- move text up and down
+keymap("v", "<A-j>", "<cmd>m .+1<CR>==gv", opts)
+keymap("v", "<A-k>", "<cmd>m .-2<CR>==gv", opts)
+keymap("n", "<A-j>", "<cmd>m .+1<CR>==", opts)
+keymap("n", "<A-k>", "<cmd>m .-2<CR>==", opts)
 keymap("v", ">", ">gv", opts)
+keymap("v", "<", "<gv", opts)
+
+-- comment
+keymap("n", "<C-/>", "<cmd>norm gcc<CR>", opts)
+keymap("v", "<C-/>", "<cmd>visual gc<CR>", opts)
+keymap("n", "<leader>/", "<cmd>norm gcc<CR>", getOptions("  Comment line style"))
+keymap("v", "<leader>/", "<cmd>norm gcc<CR>", getOptions("  Comment line style"))
+
+-- Buffers
+keymap("", "<S-E>", "<cmd>bp<CR>", getOptions("  Previous buffer"))
+keymap("", "<S-R>", "<cmd>bn<CR>", getOptions("  Next buffer"))
+keymap("", "<Leader>bcc", "<cmd>bw<CR>", getOptions("  Close buffer"))
+keymap("", "<Leader>bcl", "<cmd>BufferLineCloseLeft<CR>", getOptions("  Close buffers to the left"))
+keymap("", "<Leader>bcr", "<cmd>BufferLineCloseRight<CR>", getOptions("  Close buffers to the right"))
+keymap("", "<Leader>bp", "<cmd>bp<CR>", getOptions("  Previous buffer"))
+keymap("", "<Leader>bn", "<cmd>bn<CR>", getOptions("  Next buffer"))
+
 
 -- Plugins --
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", getOptions("פּ  Toggle explorer"))
 
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "ft", ":Telescope live_grep<CR>", getOptions("Live grep"))
+keymap("n", "fp", ":Telescope projects<CR>", getOptions("Projects"))
+keymap("n", "fb", ":Telescope buffers<CR>", getOptions("Buffers"))
+keymap("n", "ff", "<cmd>Telescope find_files<CR>", getOptions("Find file"))
+keymap("n", "fr", "<cmd>Telescope oldfiles<CR>", getOptions("Open recent file"))
+keymap("n", "fn", "<cmd>new<CR>", getOptions("New file"))
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -78,3 +98,22 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- toggle terminal
+keymap("", "<C-t>","<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
+keymap("t", "<C-t>","<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
+keymap("i", "<C-t>","<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
+keymap("", "<Leader>tf", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
+keymap("", "<Leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", getOptions("  Toggle horizontal terminal"))
+keymap("", "<Leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", getOptions("  Toggle vertical terminal"))
+keymap("t", "<Leader>t", "<cmd>ToggleTerm<CR>", getOptions("  Toggle terminal"))
+
+
+-- WHich key
+local wk = require("which-key")
+wk.register({
+    b = { name = "ﴵ  Buffers" },
+    bc = { name = "  Close buffer" },
+    s = { name = "  Sessions" },
+    t = { name = "  Terminal" },
+}, { prefix = "<leader>" })

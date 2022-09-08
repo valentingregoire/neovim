@@ -56,6 +56,25 @@ return packer.startup(function(use)
   use { "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
   use { "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" }
   use { "goolord/alpha-nvim", commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" }
+    -- pop up with key bindings
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                window = {
+                    border = "none", -- none, single, double, shadow
+                    margin = { 1, 0, 5, 0 }, -- extra window margin [top, right, bottom, left]
+                },
+              layout = {
+                height = { min = 5, max = 25 }, -- min and max height of the columns
+              }
+            }
+        end
+    }
+    -- some pop-up windows
+    use "stevearc/dressing.nvim"
+    -- notifier
+    use "rcarriga/nvim-notify"
 
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
@@ -95,6 +114,9 @@ return packer.startup(function(use)
   use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
   use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+
+  -- Sessions
+  use "shatur/neovim-session-manager"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
