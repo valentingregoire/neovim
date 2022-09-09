@@ -63,7 +63,7 @@ return packer.startup(function(use)
 			require("which-key").setup({
 				window = {
 					border = "none", -- none, single, double, shadow
-					margin = { 1, 0, 5, 0 }, -- extra window margin [top, right, bottom, left]
+					margin = { 1, 0, 2, 0 }, -- extra window margin [top, right, bottom, left]
 				},
 				layout = {
 					height = { min = 5, max = 25 }, -- min and max height of the columns
@@ -73,8 +73,12 @@ return packer.startup(function(use)
 	})
 	-- some pop-up windows
 	use("stevearc/dressing.nvim")
+
 	-- notifier
 	use("rcarriga/nvim-notify")
+
+	-- scroll bar
+	use("petertriho/nvim-scrollbar")
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" })
