@@ -13,6 +13,9 @@ null_ls.setup {
   debug = false,
   sources = {
     formatting.prettier.with {
+      require("null-ls").builtins.formatting.stylua,
+      require("null-ls").builtins.diagnostics.eslint,
+      require("null-ls").builtins.completion.spell,
       extra_filetypes = { "toml" },
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
