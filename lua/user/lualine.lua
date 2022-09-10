@@ -7,9 +7,17 @@ local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
 
-local function virtual_env()
-	return os.getenv("VIRTUAL_ENV")
-end
+-- output mode as only the first letter
+-- local mode = {
+--     "mode",
+--     fmt = function(str)
+--         return str:sub(1,1)
+--     end
+-- }
+
+-- local function virtual_env()
+-- 	return os.getenv("VIRTUAL_ENV")
+-- end
 
 local diagnostics = {
 	"diagnostics",
@@ -53,7 +61,7 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", virtual_env },
+		lualine_b = { "branch" },
 		lualine_c = { diagnostics },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },

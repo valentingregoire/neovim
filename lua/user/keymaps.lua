@@ -32,6 +32,8 @@ keymap("", "<Leader>h", "<cmd>Alpha<CR>", getOptions("  Home"))
 -- default editor
 keymap("n", "<c-s>", ":w<CR>", getOptions("  Save"))
 keymap("i", "<c-s>", "<ESC>:w<CR>a", getOptions("  Save"))
+keymap("n", '<leader>"', 'ciw""<Esc>P', getOptions("  Double quotes"))
+keymap("n", "<leader>'", "ciw''<Esc>P", getOptions("  Single quotes"))
 
 -- window management
 keymap("n", "<c-h>", "<c-w>h", getOptions("  Window left"))
