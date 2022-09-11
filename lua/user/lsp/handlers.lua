@@ -23,7 +23,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = false, -- disable virtual text
+    virtual_text = true, -- disable virtual text
     signs = {
       active = signs, -- show signs
     },
@@ -51,24 +51,34 @@ M.setup = function()
   })
 end
 
+
+-- generates options for keymaps
+function getOptions(desc)
+	return {
+		noremap = true,
+		silent = true,
+		desc = desc,
+	}
+end
+
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-  keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
-  keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-  keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-  keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-  keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", getOptions("  Declaration"))
+  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", getOptions("  Definition"))
+  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", getOptions("  Hover"))
+  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", getOptions("  Implementation"))
+  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", getOptions("   References"))
+  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", getOptions("  Line diagnostics"))
+  keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", getOptions("  Format code"))
+  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", getOptions("  LSP info"))
+  keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", getOptions("  LSP install info"))
+  keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", getOptions("  Code actions"))
+  keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", getOptions("ﭠ  Go to next problem"))
+  keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", getOptions("ﭢ  Go to previous problem"))
+  keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", getOptions("凜 Rename"))
+  keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", getOptions("  Signature"))
+  keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", getOptions("裸 Diagnostics"))
 end
 
 M.on_attach = function(client, bufnr)
