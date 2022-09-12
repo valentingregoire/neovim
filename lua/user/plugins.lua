@@ -71,6 +71,10 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+
+    -- color preview
+    use("norcalli/nvim-colorizer.lua")
+
 	-- some pop-up windows
 	use("stevearc/dressing.nvim")
 

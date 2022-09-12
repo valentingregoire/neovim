@@ -29,6 +29,9 @@ keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", getOptions("פּ  Toggle expl
 keymap("n", "<Leader>n", "<cmd>noh<CR>", getOptions("  Remove seach highlights"))
 keymap("", "<Leader>h", "<cmd>Alpha<CR>", getOptions("  Home"))
 
+-- leader leader (vim stuff)
+keymap("n", "<Leader><Leader>x", ":source %<CR>", getOptions("勒 Reload configs"))
+
 -- default editor
 keymap("n", "<c-s>", ":w<CR>", getOptions("  Save"))
 keymap("i", "<c-s>", "<ESC>:w<CR>a", getOptions("  Save"))
@@ -68,6 +71,7 @@ keymap("", "<Leader>bcl", "<cmd>BufferLineCloseLeft<CR>", getOptions("  Close
 keymap("", "<Leader>bcr", "<cmd>BufferLineCloseRight<CR>", getOptions("  Close buffers to the right"))
 keymap("", "<Leader>bp", "<cmd>bp<CR>", getOptions("  Previous buffer"))
 keymap("", "<Leader>bn", "<cmd>bn<CR>", getOptions("  Next buffer"))
+keymap("", "<Leader>bl", "<cmd>Telescope buffers<CR>", getOptions("  List buffers"))
 
 -- Plugins --
 
