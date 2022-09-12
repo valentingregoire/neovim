@@ -56,32 +56,18 @@ dapui.setup({
 			size = 0.25,
 			position = "right",
 		},
-        {
-            elements = {
-                "console",
-                { id = "repl", size = 0.2}
-            },
-            size = 40,
-            position = "bottom",
-        },
+		{
+			elements = {
+				{ id = "repl", size = 0.7 },
+				"console",
+			},
+			size = 0.3,
+			position = "bottom",
+		},
 	},
-    floating = {
-        border = "rounded",
-    },
-	-- sidebar = {
-	-- 	elements = {
-	-- 		{
-	-- 			id = "scopes",
-	-- 			size = 0.25, -- Can be float or integer > 1
-	-- 		},
-	-- 		{ id = "breakpoints", size = 0.25 },
-	-- 	},
-	-- 	size = 40,
-	-- 	position = "right", -- Can be "left", "right", "top", "bottom"
-	-- },
-	-- tray = {
-	-- 	elements = {},
-	-- },
+	floating = {
+		border = "rounded",
+	},
 })
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })

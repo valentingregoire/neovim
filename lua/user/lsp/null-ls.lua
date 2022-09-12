@@ -12,10 +12,10 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.completion.spell,
 		formatting.prettier.with({
-			-- require("null-ls").builtins.formatting.stylua,
-			-- require("null-ls").builtins.diagnostics.eslint,
-			-- require("null-ls").builtins.completion.spell,
 			extra_filetypes = { "toml" },
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),

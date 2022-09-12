@@ -4,7 +4,7 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- generates options for keymaps
-function getOptions(desc)
+local function getOptions(desc)
 	return {
 		noremap = true,
 		silent = true,
@@ -67,11 +67,12 @@ keymap("v", "<leader>/", "<cmd>norm gcc<CR>", getOptions("  Comment line styl
 keymap("", "<S-E>", "<cmd>bp<CR>", getOptions("  Previous buffer"))
 keymap("", "<S-R>", "<cmd>bn<CR>", getOptions("  Next buffer"))
 keymap("", "<Leader>bcc", "<cmd>bw<CR>", getOptions("  Close buffer"))
-keymap("", "<Leader>bcl", "<cmd>BufferLineCloseLeft<CR>", getOptions("  Close buffers to the left"))
-keymap("", "<Leader>bcr", "<cmd>BufferLineCloseRight<CR>", getOptions("  Close buffers to the right"))
+keymap("", "<Leader>bcl", "<cmd>BufferLineCloseLeft<CR>", getOptions("  Close buffers to the left"))
+keymap("", "<Leader>bcr", "<cmd>BufferLineCloseRight<CR>", getOptions("  Close buffers to the right"))
 keymap("", "<Leader>bp", "<cmd>bp<CR>", getOptions("  Previous buffer"))
 keymap("", "<Leader>bn", "<cmd>bn<CR>", getOptions("  Next buffer"))
 keymap("", "<Leader>bl", "<cmd>Telescope buffers<CR>", getOptions("  List buffers"))
+keymap("", "<Leader>bp", "<cmd>BufferLineTogglePin<CR>", getOptions("車 Toggle pin"))
 
 -- Plugins --
 
@@ -100,16 +101,21 @@ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", getOptions("  Git
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 -- keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
--- DAP
+-- DAP debugging
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", getOptions("  Toggle breakpoint"))
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
+keymap("n", "<F8>", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
+keymap("n", "<F5>", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
 keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
+keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
 keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
+keymap("n", "<F7>", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", getOptions("  Toggle REPL"))
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", getOptions("栗 Stop"))
+keymap("n", "<leader>du", "<cmd>lua require('dap').eval()<CR>", getOptions("  Evaluate expression"))
 
 -- toggle terminal
 keymap("", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
