@@ -53,7 +53,7 @@ end
 
 
 -- generates options for keymaps
-function getOptions(desc)
+local function getOptions(desc)
 	return {
 		noremap = true,
 		silent = true,

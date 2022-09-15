@@ -3,25 +3,108 @@ if not null_ls_status_ok then
 	return
 end
 
+
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#code-actions
+local code_actions = null_ls.builtins.code_actions
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#completion
+local completion = null_ls.builtins.completion
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
+
+
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 null_ls.setup({
 	debug = false,
 	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.completion.spell,
-		formatting.prettier.with({
-			extra_filetypes = { "toml" },
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-		}),
-		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.stylua,
-		formatting.google_java_format,
-		diagnostics.flake8,
+		--[[ null_ls.builtins.formatting.stylua, ]]
+		--[[ null_ls.builtins.diagnostics.eslint, ]]
+		--[[ null_ls.builtins.completion.spell, ]]
+		--[[ formatting.prettier.with({ ]]
+		--[[ 	extra_filetypes = { "toml" }, ]]
+		--[[ 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" }, ]]
+		--[[ }), ]]
+		--[[ formatting.black.with({ extra_args = { "--fast" } }), ]]
+		--[[ formatting.stylua, ]]
+		--[[ formatting.google_java_format, ]]
+		--[[ diagnostics.flake8, ]]
+
+        --[[ diagnostics.pylint, ]]
+
+        -- spelling
+        completion.spell,
+        diagnostics.alex,
+        diagnostics.codespell,
+
+        -- snippets
+        completion.luasnip,
+        completion.vsnip,
+
+        -- git
+        code_actions.gitsigns,
+
+        -- refactoring
+        code_actions.refactoring,
+
+        -- docker
+        diagnostics.hadolint,
+
+        -- markdown
+        diagnostics.markdownlint,
+        formatting.markdownlint,
+        --[[ diagnostics.textlint, ]]
+
+        -- json/yaml
+        diagnostics.jsonlint,
+        --[[ diagnostics.spectral, ]]
+        diagnostics.yamllint,
+        formatting.json_tool,
+        formatting.yamlfmt,
+
+        -- ansible
+        diagnostics.ansiblelint,
+
+        -- nginx
+        formatting.nginx_beautifier,
+
+        -- Terraform
+        formatting.terrafmt,
+        formatting.terraform_fmt,
+
+        -- make
+        diagnostics.checkmake,
+
+        -- shell
+        diagnostics.shellcheck,
+        formatting.beautysh,
+        formatting.shfmt,
+
+        -- lua
+        formatting.stylua,
+        diagnostics.luacheck,
+
+        -- python
+        code_actions.proselint,
+        formatting.isort,
+        formatting.black,
+        --[[ formatting.yapf, ]]
+        -- ignore lines too long
+        diagnostics.flake8.with({ extra_args = { "--ignore=E501" } }),
+        diagnostics.mypy,
+        diagnostics.pydocstyle,
+        diagnostics.pylama,
+        diagnostics.vulture,
+        -- Jinja, Nunjucks, Django templates, Twig and Liquid
+        diagnostics.curlylint,
+
+        -- Java
+        formatting.google_java_format,
+
+        -- html/css/es/js/ts
+        code_actions.xo,
+        completion.tags,
+        diagnostics.eslint_d,
 	},
 })
