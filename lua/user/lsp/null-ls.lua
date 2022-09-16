@@ -36,7 +36,7 @@ null_ls.setup({
         -- spelling
         completion.spell,
         diagnostics.alex,
-        diagnostics.codespell,
+        --[[ diagnostics.codespell, ]]
 
         -- snippets
         completion.luasnip,
@@ -92,7 +92,7 @@ null_ls.setup({
         --[[ formatting.yapf, ]]
         -- ignore lines too long
         diagnostics.flake8.with({ extra_args = { "--ignore=E501" } }),
-        diagnostics.mypy,
+        --[[ diagnostics.mypy, ]]
         diagnostics.pydocstyle,
         --[[ diagnostics.pylama, ]]
         --[[ diagnstics.vulture, ]]

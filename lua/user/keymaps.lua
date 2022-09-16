@@ -28,6 +28,7 @@ vim.g.mapleader = " "
 keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", getOptions("פּ  Toggle explorer"))
 keymap("n", "<Leader>n", "<cmd>noh<CR>", getOptions("  Remove search highlights"))
 keymap("", "<Leader>h", "<cmd>Alpha<CR>", getOptions("  Home"))
+keymap("", "<Leader>m", "<cmd>Notifications<CR>", getOptions("  Notifications"))
 
 -- leader leader (vim stuff)
 keymap("n", "<Leader><Leader>x", ":source %<CR>", getOptions("勒 Reload configs"))
@@ -114,9 +115,9 @@ keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", getOptions("�
 keymap("n", "<F7>", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", getOptions("  Toggle REPL"))
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
-keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
+keymap("n", "<leader>dg", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", getOptions("栗 Stop"))
-keymap("n", "<leader>du", "<cmd>lua require('dap').eval()<CR>", getOptions("  Evaluate expression"))
+keymap("n", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
 
 -- toggle terminal
 keymap("", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
