@@ -26,7 +26,7 @@ vim.g.mapleader = " "
 
 -- leader
 keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", getOptions("פּ  Toggle explorer"))
-keymap("n", "<Leader>n", "<cmd>noh<CR>", getOptions("  Remove seach highlights"))
+keymap("n", "<Leader>n", "<cmd>noh<CR>", getOptions("  Remove search highlights"))
 keymap("", "<Leader>h", "<cmd>Alpha<CR>", getOptions("  Home"))
 
 -- leader leader (vim stuff)
@@ -95,7 +95,8 @@ keymap("n", "fr", "<cmd>Telescope oldfiles<CR>", getOptions("ﭯ  Open recent fi
 keymap("n", "fn", "<cmd>new<CR>", getOptions("  New file"))
 
 -- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", getOptions("  Git"))
+--[[ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", getOptions("  Git")) ]]
+keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
 
 -- -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
@@ -132,7 +133,7 @@ wk.register({
 	b = { name = "裡 Buffers" },
 	bc = { name = "  Close buffer" },
 	d = { name = "ﴫ  Debug" },
-	g = { name = "  Power of G" },
+	g = { name = "  Git" },
 	l = { name = "  LSP" },
 	s = { name = "  Sessions" },
 	t = { name = "  Terminal" },

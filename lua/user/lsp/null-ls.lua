@@ -43,7 +43,7 @@ null_ls.setup({
         completion.vsnip,
 
         -- git
-        code_actions.gitsigns,
+        --[[ code_actions.gitsigns, ]]
 
         -- refactoring
         code_actions.refactoring,
@@ -52,8 +52,8 @@ null_ls.setup({
         diagnostics.hadolint,
 
         -- markdown
-        diagnostics.markdownlint,
-        formatting.markdownlint,
+        --[[ diagnostics.markdownlint, ]]
+        --[[ formatting.markdownlint, ]]
         --[[ diagnostics.textlint, ]]
 
         -- json/yaml
@@ -83,7 +83,7 @@ null_ls.setup({
 
         -- lua
         formatting.stylua,
-        diagnostics.luacheck,
+        --[[ diagnostics.luacheck, ]]
 
         -- python
         code_actions.proselint,
@@ -94,8 +94,8 @@ null_ls.setup({
         diagnostics.flake8.with({ extra_args = { "--ignore=E501" } }),
         diagnostics.mypy,
         diagnostics.pydocstyle,
-        diagnostics.pylama,
-        diagnostics.vulture,
+        --[[ diagnostics.pylama, ]]
+        --[[ diagnstics.vulture, ]]
         -- Jinja, Nunjucks, Django templates, Twig and Liquid
         diagnostics.curlylint,
 

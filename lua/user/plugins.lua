@@ -72,6 +72,18 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- vsnip (null-ls)
+	use("hrsh7th/vim-vsnip")
+	use("hrsh7th/vim-vsnip-integ")
+	-- refactoring (null-ls)
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
+
 	-- color preview
 	use("norcalli/nvim-colorizer.lua")
 
@@ -114,6 +126,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
+	use("kdheepak/lazygit.nvim")
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })
