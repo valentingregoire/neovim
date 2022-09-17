@@ -104,7 +104,10 @@ keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
 -- keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- DAP debugging
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", getOptions("  Toggle breakpoint"))
+--[[ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", getOptions("  Toggle breakpoint")) ]]
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", getOptions("  Toggle breakpoint"))
+keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", getOptions("ﳁ  Toggle conditional breakpoint"))
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>", getOptions("  Set log point"))
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
 keymap("n", "<F8>", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
@@ -114,7 +117,7 @@ keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  St
 keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
 keymap("n", "<F7>", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", getOptions("  Toggle REPL"))
-keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
+keymap("n", "<leader>dL", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
 keymap("n", "<leader>dg", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", getOptions("栗 Stop"))
 keymap("n", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))

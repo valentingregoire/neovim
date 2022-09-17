@@ -70,7 +70,16 @@ dapui.setup({
 	},
 })
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+--[[ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }) ]]
+vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#e68585', guibg='#291f1f' }, false)
+vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#61afef', guibg='#19232b' }, false)
+vim.highlight.create('DapStopped', { ctermbg=0, guifg='#98c379', guibg='#1b2916' }, false)
+
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DiagnosticSignError', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition', { text='ﳁ', texthl='DiagnosticSignError', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DiagnosticSignError', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
 
 -- automatically open gui
 dap.listeners.after.event_initialized["dapui_config"] = function()

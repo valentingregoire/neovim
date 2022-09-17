@@ -24,7 +24,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
 	dashboard.button("u", "ﮮ  Check updates", ":PackerSync<CR>"),
 	dashboard.button("c", "  Configuration", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
-	dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
+	dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
 local function footer()

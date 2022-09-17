@@ -132,6 +132,7 @@ return packer.startup(function(use)
 	use({ "mfussenegger/nvim-dap" })
 	use({ "rcarriga/nvim-dap-ui" })
 	use({ "ravenxrz/DAPInstall.nvim" })
+	use({ "Weissle/persistent-breakpoints.nvim" })
 
 	-- Sessions
 	use("shatur/neovim-session-manager")
