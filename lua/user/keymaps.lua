@@ -121,6 +121,7 @@ keymap("n", "<leader>dL", "<cmd>lua require'dap'.run_last()<cr>", getOptions("�
 keymap("n", "<leader>dg", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", getOptions("栗 Stop"))
 keymap("n", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
+keymap("v", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
 
 -- toggle terminal
 keymap("", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
