@@ -23,3 +23,6 @@ telescope.setup {
     },
   },
 }
+
+telescope.load_extension("vim_bookmarks")
+telescope.load_extension("notify")

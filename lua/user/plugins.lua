@@ -72,6 +72,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- lightspeed motion
+	use("ggandor/lightspeed.nvim")
+
 	-- vsnip (null-ls)
 	use("hrsh7th/vim-vsnip")
 	use("hrsh7th/vim-vsnip-integ")
@@ -97,7 +100,7 @@ return packer.startup(function(use)
 	use("petertriho/nvim-scrollbar")
 
 	-- Colorschemes
-	use({ "folke/tokyonight.nvim" })
+	--[[ use({ "folke/tokyonight.nvim" }) ]]
 	use({ "lunarvim/darkplus.nvim" })
 
 	-- cmp plugins
@@ -112,14 +115,9 @@ return packer.startup(function(use)
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
-	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "RRethy/vim-illuminate" })
-
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
+	use({ "tom-anders/telescope-vim-bookmarks.nvim" })
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
@@ -127,6 +125,21 @@ return packer.startup(function(use)
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 	use("kdheepak/lazygit.nvim")
+
+	-- Diff view
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+
+	-- LSP
+	use({ "neovim/nvim-lspconfig" }) -- enable LSP
+	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "RRethy/vim-illuminate" })
+
+	-- Bookmarks
+	use({ "mattesgroeger/vim-bookmarks" })
+
+	-- quick run
+	use("is0n/jaq-nvim")
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })

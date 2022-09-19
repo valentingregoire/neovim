@@ -103,11 +103,24 @@ keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 -- keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
+-- Jaq
+keymap("n", "<F4>", "<cmd>Jaq<CR>", getOptions("  Run code"))
+
 -- DAP debugging
 --[[ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", getOptions("  Toggle breakpoint")) ]]
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", getOptions("  Toggle breakpoint"))
-keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", getOptions("ﳁ  Toggle conditional breakpoint"))
-keymap("n", "<leader>dl", "<cmd>lua require'dap'.set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>", getOptions("  Set log point"))
+keymap(
+	"n",
+	"<leader>dB",
+	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+	getOptions("ﳁ  Toggle conditional breakpoint")
+)
+keymap(
+	"n",
+	"<leader>dl",
+	"<cmd>lua require'dap'.set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>",
+	getOptions("  Set log point")
+)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
 keymap("n", "<F8>", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
@@ -134,6 +147,24 @@ keymap("t", "<Leader>t", "<cmd>ToggleTerm<CR>", getOptions("  Toggle terminal
 
 -- Which key
 local wk = require("which-key")
+-- bookmarks
+wk.register({
+	m = {
+		name = "  Bookmarks",
+		a = "  Show all bookmarks",
+		c = "  Clear bookmark",
+		m = "  Toggle bookmark",
+		g = "  Move bookmark to line",
+		i = "  Annotate bookmark",
+		x = "  Clear all bookmarks",
+		n = "ﰳ  Next bookmark",
+		p = "ﰰ  Previous bookmark",
+		j = { name = "ﰭ  Move bookmark down", j = "ﰭ  Move bookmark down" },
+		k = { name = "ﰶ  Move bookmark up", j = "ﰭ  Move bookmark up" },
+	},
+})
+
+-- <leader>
 wk.register({
 	b = { name = "裡 Buffers" },
 	bc = { name = "  Close buffer" },
