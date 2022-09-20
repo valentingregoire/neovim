@@ -75,8 +75,6 @@ keymap("", "<Leader>bn", "<cmd>bn<CR>", getOptions("  Next buffer"))
 keymap("", "<Leader>bl", "<cmd>Telescope buffers<CR>", getOptions("  List buffers"))
 keymap("", "<Leader>bp", "<cmd>BufferLineTogglePin<CR>", getOptions("車 Toggle pin"))
 
--- Plugins --
-
 -- Session manager
 keymap("", "<Leader>sa", "<cmd>SessionManager load_last_session<CR>", getOptions("  Load last session"))
 keymap("", "<Leader>ss", "<cmd>SessionManager save_current_session<CR>", getOptions("  Save session"))
@@ -88,12 +86,14 @@ keymap("", "<Leader>sd", "<cmd>SessionManager delete_session<CR>", getOptions("�
 keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", getOptions("פּ  Toggle explorer"))
 
 -- Telescope
-keymap("n", "ft", ":Telescope live_grep<CR>", getOptions("  Live grep"))
-keymap("n", "fp", ":Telescope projects<CR>", getOptions("  Projects"))
-keymap("n", "fb", ":Telescope buffers<CR>", getOptions("裡 Buffers"))
-keymap("n", "ff", "<cmd>Telescope find_files<CR>", getOptions("  Find file"))
-keymap("n", "fr", "<cmd>Telescope oldfiles<CR>", getOptions("ﭯ  Open recent file"))
-keymap("n", "fn", "<cmd>new<CR>", getOptions("  New file"))
+keymap("n", "<c-p>", "<cmd>Telescope<CR>", getOptions("  Telescope"))
+keymap("n", "<leader>f<CR>", ":Telescope<CR>", getOptions("  Telescope"))
+keymap("n", "<leader>ft", ":Telescope live_grep<CR>", getOptions("  Live grep"))
+keymap("n", "<leader>fp", ":Telescope projects<CR>", getOptions("  Projects"))
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", getOptions("裡 Buffers"))
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", getOptions("  Find file"))
+keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", getOptions("ﭯ  Open recent file"))
+keymap("n", "<leader>fn", "<cmd>new<CR>", getOptions("  New file"))
 
 -- Git
 --[[ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", getOptions("  Git")) ]]
@@ -170,6 +170,7 @@ wk.register({
 	b = { name = "裡 Buffers" },
 	bc = { name = "  Close buffer" },
 	d = { name = "ﴫ  Debug" },
+	f = { name = "  Telescope" },
 	g = { name = "  Git" },
 	l = { name = "  LSP" },
 	s = { name = "  Sessions" },
