@@ -140,6 +140,7 @@ return packer.startup(function(use)
 
 	-- quick run
 	use("is0n/jaq-nvim")
+	use({ "michaelb/sniprun", run = "bash ./install.sh" })
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })

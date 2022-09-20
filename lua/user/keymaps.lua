@@ -103,7 +103,8 @@ keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 -- keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
--- Jaq
+-- run code
+keymap("n", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
 keymap("n", "<F4>", "<cmd>Jaq<CR>", getOptions("  Run code"))
 
 -- DAP debugging
