@@ -68,6 +68,7 @@ keymap("v", "<leader>/", "<cmd>norm gcc<CR>", getOptions("  Comment line styl
 keymap("", "<S-E>", "<cmd>bp<CR>", getOptions("  Previous buffer"))
 keymap("", "<S-R>", "<cmd>bn<CR>", getOptions("  Next buffer"))
 keymap("", "<Leader>bcc", "<cmd>bw<CR>", getOptions("  Close buffer"))
+keymap("", "<Leader>bcC", "<cmd>bw!<CR>", getOptions("  Force close buffer"))
 keymap("", "<Leader>bcl", "<cmd>BufferLineCloseLeft<CR>", getOptions("  Close buffers to the left"))
 keymap("", "<Leader>bcr", "<cmd>BufferLineCloseRight<CR>", getOptions("  Close buffers to the right"))
 keymap("", "<Leader>bp", "<cmd>bp<CR>", getOptions("  Previous buffer"))
@@ -108,7 +109,6 @@ keymap("n", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
 keymap("n", "<F4>", "<cmd>Jaq<CR>", getOptions("  Run code"))
 
 -- DAP debugging
---[[ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", getOptions("  Toggle breakpoint")) ]]
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", getOptions("  Toggle breakpoint"))
 keymap(
 	"n",
@@ -130,6 +130,7 @@ keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", getOptions("�
 keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
 keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
 keymap("n", "<F7>", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
+keymap("n", "<leader>dm", "<cmd>lua require'dap-python'.test_method()<cr>", getOptions("  Test method"))
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", getOptions("  Toggle REPL"))
 keymap("n", "<leader>dL", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
 keymap("n", "<leader>dg", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))

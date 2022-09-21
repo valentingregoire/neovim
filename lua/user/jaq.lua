@@ -1,11 +1,3 @@
--- try to use the current active virtual env for python
-local python_virtual_env = os.getenv("VIRTUAL_ENV")
-if python_virtual_env == nil then
-	python_virtual_env = "python"
-else
-	python_virtual_env = python_virtual_env .. "/bin/python"
-end
-
 require("jaq-nvim").setup({
 	cmds = {
 		-- Uses vim commands
@@ -16,7 +8,7 @@ require("jaq-nvim").setup({
 
 		-- Uses shell commands
 		external = {
-			python = python_virtual_env .. " %",
+			python = PYTHON_VIRTUAL_ENV() .. " %",
 			sh = "sh %",
 		},
 	},
