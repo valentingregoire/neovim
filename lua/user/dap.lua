@@ -19,10 +19,6 @@ if not dap_virtual_text_status_ok then
 	return
 end
 
---[[ local dap_python_status_ok, dap_python = pcall(require, "dap_python") ]]
---[[ if not dap_python_status_ok then ]]
---[[ 	return ]]
---[[ end ]]
 
 dap_install.setup({})
 
@@ -34,25 +30,24 @@ dap_install.config("python", {
 -- add other configs here
 
 -- Adapters
--- dap.adapters.python = {
---     type = "executable",
---     command = "/home/valentin/.virtualenvs/debugpy/bin/python",
---     args = { "-m", "debugpy.adaptber" },
--- }
+--[[ dap.adapters.python = { ]]
+--[[ 	type = "executable", ]]
+--[[ 	command = "/home/valentin/.virtualenvs/debugpy/bin/python", ]]
+--[[ 	args = { "-m", "debugpy.adaptber" }, ]]
+--[[ } ]]
 
-dap.configurations.python = {
-	{
-		type = "python",
-		request = "launch",
-		name = "Launch file",
-		program = "${file}",
-		pythonPath = function()
-			-- return "/home/valentin/.virtualenvs/${workspaceFolderBasename}"
-			--[[ return "/home/valentin/.virtualenvs/appstore_portal_back_end/bin/python" ]]
-            return PYTHON_VIRTUAL_ENV()
-		end,
-	},
-}
+--[[ dap.configurations.python = { ]]
+--[[ 	{ ]]
+--[[ 		type = "python", ]]
+--[[ 		request = "launch", ]]
+--[[ 		name = "Launch file", ]]
+--[[ 		program = "${file}", ]]
+--[[ 		pythonPath = function() ]]
+--[[ 			-- return "/home/valentin/.virtualenvs/${workspaceFolderBasename}" ]]
+--[[ 			return PYTHON_VIRTUAL_ENV() ]]
+--[[ 		end, ]]
+--[[ 	}, ]]
+--[[ } ]]
 
 dapui.setup({
 	layouts = {
@@ -68,8 +63,9 @@ dapui.setup({
 		},
 		{
 			elements = {
-				{ id = "repl", size = 0.7 },
-				"console",
+				"repl",
+				--[[ { id = "repl", size = 0.7 }, ]]
+				--[[ "console", ]]
 			},
 			size = 0.3,
 			position = "bottom",
@@ -83,14 +79,6 @@ dapui.setup({
 dap_virtual_text.setup({
 	--[[ virt_text_pos = "right_align", -- "eol" | "overlay" | "right_align" ]]
 })
-
---[[ dap_python.setup("~/.virtualenvs/debugpy/bin/python") ]]
---[[ local test_runners = dap_python.test_runners ]]
---[[ test_runners.nose2 = function(classname, methodname, opts) ]]
---[[ 	local args = { classname, methodname } ]]
---[[ 	return "nose2", args ]]
---[[ end ]]
---[[ dap_python.test_runner = "unittest" -- unittest | pytest | django ]]
 
 --[[ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }) ]]
 --[[ vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#e68585', guibg='#291f1f' }, false) ]]
@@ -115,6 +103,19 @@ vim.fn.sign_define(
 	{ text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
 )
 vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
+
+local dap_python_status_ok, dap_python = pcall(require, "dap_python")
+if not dap_python_status_ok then
+	return
+end
+
+dap_python.setup("/home/valentin/.virtualenvs/debugpy/bin/python")
+--[[ local test_runners = dap_python.test_runners ]]
+--[[ test_runners.nose2 = function(classname, methodname, opts) ]]
+--[[ 	local args = { classname, methodname } ]]
+--[[ 	return "nose2", args ]]
+--[[ end ]]
+dap_python.test_runner = "unittest" -- unittest | pytest | django
 
 -- automatically open gui
 dap.listeners.after.event_initialized["dapui_config"] = function()

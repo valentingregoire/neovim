@@ -147,7 +147,17 @@ return packer.startup(function(use)
 	use({ "rcarriga/nvim-dap-ui" })
 	use({ "theHamsta/nvim-dap-virtual-text" })
 	use({ "ravenxrz/DAPInstall.nvim" })
-	--[[ use({ "mfussenegger/nvim-dap-python" }) ]]
+	use({ "mfussenegger/nvim-dap-python" })
+
+	-- markdown preview
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
 	-- Sessions
 	use("shatur/neovim-session-manager")

@@ -75,6 +75,7 @@ keymap("", "<Leader>bp", "<cmd>bp<CR>", getOptions("  Previous buffer"))
 keymap("", "<Leader>bn", "<cmd>bn<CR>", getOptions("  Next buffer"))
 keymap("", "<Leader>bl", "<cmd>Telescope buffers<CR>", getOptions("  List buffers"))
 keymap("", "<Leader>bp", "<cmd>BufferLineTogglePin<CR>", getOptions("車 Toggle pin"))
+keymap("", "<S-Tab>", "<cmd>:b#<CR>", getOptions(" Jump to last used buffer"))
 
 -- Session manager
 keymap("", "<Leader>sa", "<cmd>SessionManager load_last_session<CR>", getOptions("  Load last session"))
@@ -106,6 +107,7 @@ keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
 
 -- run code
 keymap("n", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
+keymap("v", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
 keymap("n", "<F4>", "<cmd>Jaq<CR>", getOptions("  Run code"))
 
 -- DAP debugging
@@ -139,13 +141,16 @@ keymap("n", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("�
 keymap("v", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
 
 -- toggle terminal
-keymap("", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
-keymap("t", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
-keymap("i", "<C-t>", "<cmd>ToggleTerm direction=float<CR>", getOptions("  Toggle floating terminal"))
+keymap("", "<C-t>", "<cmd>ToggleTerm direction=horizontal<CR>", getOptions("  Toggle floating terminal"))
+keymap("t", "<C-t>", "<cmd>ToggleTerm direction=horizontal<CR>", getOptions("  Toggle floating terminal"))
+keymap("i", "<C-t>", "<cmd>ToggleTerm direction=horizontal<CR>", getOptions("  Toggle floating terminal"))
 keymap("", "<Leader>tf", "<cmd>ToggleTerm direction=float<CR>", getOptions("禎 Toggle floating terminal"))
 keymap("", "<Leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", getOptions("ﬠ  Toggle horizontal terminal"))
 keymap("", "<Leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", getOptions("ײַ  Toggle vertical terminal"))
 keymap("t", "<Leader>t", "<cmd>ToggleTerm<CR>", getOptions("  Toggle terminal"))
+
+-- markdown preview
+keymap("", "<Leader>p", "<cmd>MarkdownPreviewToggle<CR>", getOptions("  Markdown preview"))
 
 -- Which key
 local wk = require("which-key")
