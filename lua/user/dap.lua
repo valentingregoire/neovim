@@ -9,45 +9,55 @@ if not dap_ui_status_ok then
 	return
 end
 
-local dap_install_status_ok, dap_install = pcall(require, "dap-install")
-if not dap_install_status_ok then
-	return
-end
+--[[ local dap_install_status_ok, dap_install = pcall(require, "dap-install") ]]
+--[[ if not dap_install_status_ok then ]]
+--[[ 	return ]]
+--[[ end ]]
 
 local dap_virtual_text_status_ok, dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
 if not dap_virtual_text_status_ok then
 	return
 end
 
+--[[ dap_install.setup({}) ]]
 
-dap_install.setup({})
-
-dap_install.config("python", {
-	type = "executable",
-	command = "/home/valentin/.virtualenvs/debugpy/bin/python",
-	args = { "-m", "debugpy.adaptber" },
-})
--- add other configs here
-
--- Adapters
---[[ dap.adapters.python = { ]]
+--[[ dap_install.config("python", { ]]
 --[[ 	type = "executable", ]]
 --[[ 	command = "/home/valentin/.virtualenvs/debugpy/bin/python", ]]
 --[[ 	args = { "-m", "debugpy.adaptber" }, ]]
---[[ } ]]
+--[[ }) ]]
+-- add other configs here
 
---[[ dap.configurations.python = { ]]
---[[ 	{ ]]
---[[ 		type = "python", ]]
---[[ 		request = "launch", ]]
---[[ 		name = "Launch file", ]]
---[[ 		program = "${file}", ]]
---[[ 		pythonPath = function() ]]
---[[ 			-- return "/home/valentin/.virtualenvs/${workspaceFolderBasename}" ]]
---[[ 			return PYTHON_VIRTUAL_ENV() ]]
---[[ 		end, ]]
---[[ 	}, ]]
---[[ } ]]
+-- Adapters
+dap.adapters.python = {
+	type = "executable",
+	command = os.getenv("HOME") .. "/.virtualenvs/debugpy/bin/python",
+	args = { "-m", "debugpy.adapter" },
+}
+
+dap.configurations.python = {
+	{
+		type = "python",
+		request = "launch",
+		name = "Default",
+		pythonPath = PYTHON_VIRTUAL_ENV(),
+		program = "${file}",
+	},
+	{
+		type = "python",
+		request = "launch",
+		name = "Tests",
+		pythonPath = PYTHON_VIRTUAL_ENV(),
+		program = "${file}",
+		justMyCode = false,
+        --[[ module = "nose2", ]]
+		--[[ cwd = "${workspaceFolder}/src", ]]
+        cwd = "${workspaceFolder}/src",
+		env = {
+			ARANGO_DB = "appstore-test",
+		},
+	},
+}
 
 dapui.setup({
 	layouts = {
@@ -109,7 +119,7 @@ if not dap_python_status_ok then
 	return
 end
 
-dap_python.setup("/home/valentin/.virtualenvs/debugpy/bin/python")
+dap_python.setup(os.getenv("HOME") .. "/.virtualenvs/debugpy/bin/python")
 --[[ local test_runners = dap_python.test_runners ]]
 --[[ test_runners.nose2 = function(classname, methodname, opts) ]]
 --[[ 	local args = { classname, methodname } ]]

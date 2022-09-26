@@ -52,7 +52,7 @@ return packer.startup(function(use)
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })
 	use({ "akinsho/toggleterm.nvim" })
-	use({ "ahmedkhalf/project.nvim" })
+	--[[ use({ "ahmedkhalf/project.nvim" }) ]]
 	use({ "lewis6991/impatient.nvim" })
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "goolord/alpha-nvim" })
@@ -124,7 +124,8 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
-	use("kdheepak/lazygit.nvim")
+	--[[ use("kdheepak/lazygit.nvim") ]]
+	use({ "codeindulgence/vim-tig" })
 
 	-- Diff view
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -146,8 +147,21 @@ return packer.startup(function(use)
 	use({ "mfussenegger/nvim-dap" })
 	use({ "rcarriga/nvim-dap-ui" })
 	use({ "theHamsta/nvim-dap-virtual-text" })
-	use({ "ravenxrz/DAPInstall.nvim" })
+	--[[ use({ "ravenxrz/DAPInstall.nvim" }) ]]
 	use({ "mfussenegger/nvim-dap-python" })
+
+	-- unit tests
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-plenary",
+			"nvim-neotest/neotest-vim-test",
+		},
+	})
 
 	-- markdown preview
 	use({
@@ -159,7 +173,7 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 
-	-- Sessions
+	--[[ -- Sessions ]]
 	use("shatur/neovim-session-manager")
 
 	-- Automatically set up your configuration after cloning packer.nvim
