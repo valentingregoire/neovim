@@ -43,6 +43,15 @@ dap.configurations.python = {
 		pythonPath = PYTHON_VIRTUAL_ENV(),
 		program = "${file}",
 	},
+    {
+        type = "python",
+        request = "launch",
+        name = "cwd/cwd",
+        pythonPath = PYTHON_VIRTUAL_ENV(),
+        program = "${file}",
+        justMyCode = false,
+        cwd = "${workspaceFolder}/{workspaceFolderBasename}",
+    },
 	{
 		type = "python",
 		request = "launch",
@@ -57,6 +66,15 @@ dap.configurations.python = {
 			ARANGO_DB = "appstore-test",
 		},
 	},
+    {
+        type = "python",
+        request = "launch",
+        name = "Kubectl",
+        pythonPath = PYTHON_VIRTUAL_ENV(),
+        program = "${file}",
+        justMyCode = true,
+        cwd = "${workspaceFolder}/kubectl_app_store",
+    }
 }
 
 dapui.setup({

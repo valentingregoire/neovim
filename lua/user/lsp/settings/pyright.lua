@@ -2,13 +2,13 @@ local util = require("lspconfig.util")
 
 local root_files = {
     "src",
+	"requirements.txt",
 	"pyproject.toml",
 	"setup.py",
 	"setup.cfg",
-	"requirements.txt",
 	"Pipfile",
 	"pyrightconfig.json",
-	".gitlab-ci.yml",
+	--[[ ".gitlab-ci.yml", ]]
 }
 
 return {
