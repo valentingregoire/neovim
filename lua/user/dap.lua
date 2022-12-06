@@ -110,9 +110,10 @@ dap_virtual_text.setup({
 
 --[[ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }) ]]
 --[[ vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#e68585', guibg='#291f1f' }, false) ]]
-vim.highlight.create("DapBreakpoint", { ctermbg = 0, guifg = "", guibg = "#4B1515" }, false)
-vim.highlight.create("DapLogPoint", { ctermbg = 0, guifg = "", guibg = "#19232b" }, false)
-vim.highlight.create("DapStopped", { ctermbg = 0, guifg = "", guibg = "#1b2916" }, false)
+vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "", bg = "#4B1515" })
+--[[ vim.highlight.create("DapBreakpoint", { ctermbg = 0, guifg = "", guibg = "#4B1515" }, false) ]]
+--[[ vim.highlight.create("DapLogPoint", { ctermbg = 0, guifg = "", guibg = "#19232b" }, false) ]]
+--[[ vim.highlight.create("DapStopped", { ctermbg = 0, guifg = "", guibg = "#1b2916" }, false) ]]
 
 vim.fn.sign_define(
 	"DapBreakpoint",
