@@ -102,7 +102,8 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	--[[ use({ "folke/tokyonight.nvim" }) ]]
-	use({ "lunarvim/darkplus.nvim" })
+	-- use({ "lunarvim/darkplus.nvim" })
+    use({ "navarasu/onedark.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -125,9 +126,9 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	--[[ use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use ]]
+	-- -- snippets
+	-- use({ "L3MON4D3/LuaSnip" }) --snippet engine
+	-- --[[ use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use ]]
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
@@ -139,43 +140,43 @@ return packer.startup(function(use)
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 	--[[ use("kdheepak/lazygit.nvim") ]]
-	use({ "codeindulgence/vim-tig" })
+	-- use({ "codeindulgence/vim-tig" })
 
 	-- Diff view
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
-	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "RRethy/vim-illuminate" })
+	-- -- LSP
+	-- use({ "neovim/nvim-lspconfig" }) -- enable LSP
+	-- use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	-- use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	-- use({ "RRethy/vim-illuminate" })
 
 	-- Bookmarks
 	use({ "mattesgroeger/vim-bookmarks" })
 
-	-- quick run
-	use("is0n/jaq-nvim")
-	use({ "michaelb/sniprun", run = "bash ./install.sh" })
+	-- -- quick run
+	-- use("is0n/jaq-nvim")
+	-- use({ "michaelb/sniprun", run = "bash ./install.sh" })
 
-	-- DAP
-	use({ "mfussenegger/nvim-dap" })
-	use({ "rcarriga/nvim-dap-ui" })
-	use({ "theHamsta/nvim-dap-virtual-text" })
-	--[[ use({ "ravenxrz/DAPInstall.nvim" }) ]]
-	use({ "mfussenegger/nvim-dap-python" })
+	-- -- DAP
+	-- use({ "mfussenegger/nvim-dap" })
+	-- use({ "rcarriga/nvim-dap-ui" })
+	-- use({ "theHamsta/nvim-dap-virtual-text" })
+	-- --[[ use({ "ravenxrz/DAPInstall.nvim" }) ]]
+	-- use({ "mfussenegger/nvim-dap-python" })
 
-	-- unit tests
-	use({
-		"nvim-neotest/neotest",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-neotest/neotest-python",
-			"nvim-neotest/neotest-plenary",
-			"nvim-neotest/neotest-vim-test",
-		},
-	})
+	-- -- unit tests
+	-- use({
+	-- 	"nvim-neotest/neotest",
+	-- 	requires = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"antoinemadec/FixCursorHold.nvim",
+	-- 		"nvim-neotest/neotest-python",
+	-- 		"nvim-neotest/neotest-plenary",
+	-- 		"nvim-neotest/neotest-vim-test",
+	-- 	},
+	-- })
 
 	-- markdown preview
 	use({

@@ -97,48 +97,48 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", getOptions("  Find
 keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", getOptions("ﭯ  Open recent file"))
 keymap("n", "<leader>fn", "<cmd>new<CR>", getOptions("  New file"))
 
--- Git
---[[ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", getOptions("  Git")) ]]
-keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
+-- -- Git
+-- --[[ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", getOptions("  Git")) ]]
+-- keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", getOptions("  Git"))
 
 -- -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 -- keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
--- run code
-keymap("n", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
-keymap("v", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
-keymap("n", "<F4>", "<cmd>Jaq<CR>", getOptions("  Run code"))
+-- -- run code
+-- keymap("n", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
+-- keymap("v", "<F3>", "<cmd>SnipRun<CR>", getOptions("  Run selection"))
+-- keymap("n", "<F4>", "<cmd>Jaq<CR>", getOptions("  Run code"))
 
--- DAP debugging
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", getOptions("  Toggle breakpoint"))
-keymap(
-	"n",
-	"<leader>dB",
-	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-	getOptions("ﳁ  Toggle conditional breakpoint")
-)
-keymap(
-	"n",
-	"<leader>dl",
-	"<cmd>lua require'dap'.set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>",
-	getOptions("  Set log point")
-)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
-keymap("n", "<F8>", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
-keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
-keymap("n", "<F5>", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
-keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
-keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
-keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
-keymap("n", "<leader>dm", "<cmd>lua require'dap-python'.test_method()<cr>", getOptions("  Test method"))
-keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", getOptions("  Toggle REPL"))
-keymap("n", "<leader>dL", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
-keymap("n", "<leader>dg", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
-keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", getOptions("栗 Stop"))
-keymap("n", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
-keymap("v", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
+-- -- DAP debugging
+-- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", getOptions("  Toggle breakpoint"))
+-- keymap(
+-- 	"n",
+-- 	"<leader>dB",
+-- 	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+-- 	getOptions("ﳁ  Toggle conditional breakpoint")
+-- )
+-- keymap(
+-- 	"n",
+-- 	"<leader>dl",
+-- 	"<cmd>lua require'dap'.set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>",
+-- 	getOptions("  Set log point")
+-- )
+-- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
+-- keymap("n", "<F8>", "<cmd>lua require'dap'.continue()<cr>", getOptions("  Continue"))
+-- keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
+-- keymap("n", "<F5>", "<cmd>lua require'dap'.step_into()<cr>", getOptions("  Step into"))
+-- keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
+-- keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", getOptions("  Step over"))
+-- keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
+-- keymap("n", "<F7>", "<cmd>lua require'dap'.step_out()<cr>", getOptions("  Step out"))
+-- keymap("n", "<leader>dm", "<cmd>lua require'dap-python'.test_method()<cr>", getOptions("  Test method"))
+-- keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", getOptions("  Toggle REPL"))
+-- keymap("n", "<leader>dL", "<cmd>lua require'dap'.run_last()<cr>", getOptions("漏 Run last"))
+-- keymap("n", "<leader>dg", "<cmd>lua require'dapui'.toggle()<cr>", getOptions("拓 Toggle GUI"))
+-- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", getOptions("栗 Stop"))
+-- keymap("n", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
+-- keymap("v", "<leader>du", "<cmd>lua require('dapui').eval()<CR>", getOptions("  Evaluate expression"))
 
 -- toggle terminal
 keymap("", "<C-t>", "<cmd>ToggleTerm direction=horizontal<CR>", getOptions("  Toggle floating terminal"))
@@ -154,22 +154,22 @@ keymap("", "<Leader>p", "<cmd>MarkdownPreviewToggle<CR>", getOptions("  Markd
 
 -- Which key
 local wk = require("which-key")
--- bookmarks
-wk.register({
-	m = {
-		name = "  Bookmarks",
-		a = "  Show all bookmarks",
-		c = "  Clear bookmark",
-		m = "  Toggle bookmark",
-		g = "  Move bookmark to line",
-		i = "  Annotate bookmark",
-		x = "  Clear all bookmarks",
-		n = "ﰳ  Next bookmark",
-		p = "ﰰ  Previous bookmark",
-		j = { name = "ﰭ  Move bookmark down", j = "ﰭ  Move bookmark down" },
-		k = { name = "ﰶ  Move bookmark up", j = "ﰭ  Move bookmark up" },
-	},
-})
+-- -- bookmarks
+-- wk.register({
+-- 	m = {
+-- 		name = "  Bookmarks",
+-- 		a = "  Show all bookmarks",
+-- 		c = "  Clear bookmark",
+-- 		m = "  Toggle bookmark",
+-- 		g = "  Move bookmark to line",
+-- 		i = "  Annotate bookmark",
+-- 		x = "  Clear all bookmarks",
+-- 		n = "ﰳ  Next bookmark",
+-- 		p = "ﰰ  Previous bookmark",
+-- 		j = { name = "ﰭ  Move bookmark down", j = "ﰭ  Move bookmark down" },
+-- 		k = { name = "ﰶ  Move bookmark up", j = "ﰭ  Move bookmark up" },
+-- 	},
+-- })
 
 -- <leader>
 wk.register({
