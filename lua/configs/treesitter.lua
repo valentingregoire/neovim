@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
+    on_attach = on_attach,
 	ensure_installed = "all", -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
